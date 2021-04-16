@@ -32,4 +32,4 @@ client.on('message', message =>{
         client.commands.get('ping').execute(message, args);
     }
 });
-client.login('NTMwOTM0NTEyNjc1MTkyODQy.XDAVTA.6hoKqIZvowb1Yzyk5Dhgss70rqI')
+client.login('')
