@@ -14,7 +14,7 @@ module.exports = {
 
         .setColor()
 
-        .setFooter('Version 0.0.1')
+        .setFooter('Version 0.0.2')
         message.channel.send(Embed)
 
         
