@@ -1,7 +1,23 @@
+const { DiscordAPIError, MessageEmbed } = require("discord.js")
+
 module.exports = {
     name: 'ping',
-    description: "This is ping command idiot you literally coded this how do you not know this.",
+    description: "Allows user to check the bot's latency between their message.",
     execute(message, args){
-        message.channel.send('fuck you')
+        const ping = message.createdTimestamp - Date.now()
+
+        const Embed = new MessageEmbed()
+
+        .setTitle(':ping_pong: Pong!')
+
+        .addField('Latency', ping + ' ms')
+
+        .setColor()
+
+        .setFooter('Version 0.0.1')
+        message.channel.send(Embed)
+
+        
+        
     }
 }

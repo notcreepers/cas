@@ -17,6 +17,7 @@ for(const file of commandFiles){
 
 }
 
+
 client.once('Ready!', () => {
     console.log('Get ready to cry!');
 });
@@ -25,11 +26,15 @@ client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+    const commandName = args.shift().toLowerCase();
 
-    if(command === 'ping'){
+    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-        client.commands.get('ping').execute(message, args);
+    try {
+        command.execute(message, args);
+    } catch (error) {
+        console.error(error);
+        message.channel.send(':no_entry_sign: Sorry, an unknown error has occured.');
     }
 });
-client.login('NTMwOTM0NTEyNjc1MTkyODQy.XDAVTA.6hoKqIZvowb1Yzyk5Dhgss70rqI')
+client.login('')
