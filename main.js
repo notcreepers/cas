@@ -17,13 +17,23 @@ for(const file of commandFiles){
 
 }
 
+module.exports = {
+    name: 'ready',
+    once:true,
+async execute(client) {
+    client.once('Ready!', () => {
+        console.log('Get ready to cry!');
+    
+        
+    });
+    }
+}
 
-client.once('Ready!', () => {
-    console.log('Get ready to cry!');
-});
 
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
+
+    client.user.setPresence("PLAYING", 'I WANNA DIE') 
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
@@ -37,4 +47,4 @@ client.on('message', message =>{
         message.channel.send(':no_entry_sign: Sorry, an unknown error has occured.');
     }
 });
-client.login('')
+client.login(' ')

@@ -6,9 +6,9 @@ module.exports = {
     execute(message, args){
         const Embed = new MessageEmbed()
 
-        .setTitle('I am currently on Version 0.0.2.')
+        .setTitle('I am currently on Version 0.1.')
 
-        .setFooter('Version 0.0.2')
+        .setFooter('Version 0.1')
         message.channel.send(Embed)
 
         
